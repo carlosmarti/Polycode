@@ -141,13 +141,13 @@ namespace Polycode {
 		* @param x New cursor x position 
 		* @param y New cursor y position		
 		*/
-		virtual void warpCursor(int x, int y) {}
+        virtual void warpCursor(int x, int y) {}
 		
 		/**
 		 * Opens / closes the on-screen keyboard on a mobile device.
 		 * @param open True to open false to close
 		 */
-		virtual void openOnScreenKeyboard(bool open){};
+        virtual void openOnScreenKeyboard(bool open){}
 		
 		/**
 		* Launches a Threaded class into its own thread. See the documentation for Threaded for information on how to crated threaded classes.
@@ -280,7 +280,7 @@ namespace Polycode {
 
 		virtual void handleVideoModeChange(VideoModeChangeInfo *modeInfo) = 0;
 		virtual void flushRenderContext() = 0;
-		virtual void prepareRenderContext() {}		virtual bool isWindowInitialized() {return true;};
+        virtual void prepareRenderContext() {}		virtual bool isWindowInitialized() {return true;}
 		CoreFile *openFile(const Polycode::String& fileName, const Polycode::String& opts);
 		void closeFile(CoreFile *file);
 		

@@ -22,9 +22,7 @@
 
 #include "polycode/core/PolySDLCore.h"
 #include "polycode/view/linux/PolycodeView.h"
-#include "polycode/core/PolyCoreServices.h"
 #include "polycode/core/PolyCoreInput.h"
-#include "polycode/core/PolyMaterialManager.h"
 #include "polycode/core/PolyThreaded.h"
 #include "polycode/core/PolyLogger.h"
 
@@ -64,14 +62,14 @@ namespace {
 using namespace Polycode;
 using std::vector;
 
-void SDLCoreMutex::lock()
+/*void SDLCoreMutex::lock()
 {
 	SDL_mutexP(pMutex);
 }
 
 void SDLCoreMutex::unlock() {
 	SDL_mutexV(pMutex);
-}
+}*/
 
 
 long getThreadID() {
@@ -119,7 +117,7 @@ SDLCore::SDLCore(PolycodeView *view, int _xRes, int _yRes, bool fullScreen, bool
 	  Logger::log("SDL_Init failed! Code: %d, %s\n", sdlerror, SDL_GetError());
 	}
 	
-	eventMutex = createMutex();
+    //eventMutex = createMutex();
 	
 	renderer = new Renderer();
 	OpenGLGraphicsInterface *renderInterface = new OpenGLGraphicsInterface();
@@ -625,11 +623,11 @@ void SDLCore::warpCursor(int x, int y) {
 	lastMouseY = y;
 }
 
-CoreMutex *SDLCore::createMutex() {
+/*CoreMutex *SDLCore::createMutex() {
 	SDLCoreMutex *mutex = new SDLCoreMutex();
 	mutex->pMutex = SDL_CreateMutex();
 	return mutex;	
-}
+}*/
 
 void SDLCore::copyStringToClipboard(const String& str) {
 	SDL_SetClipboardText(str.c_str());

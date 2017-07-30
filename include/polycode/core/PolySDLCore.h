@@ -37,12 +37,12 @@ namespace Polycode {
 
 	class PolycodeView;
 
-	class _PolyExport SDLCoreMutex : public CoreMutex {
+    /*class _PolyExport SDLCoreMutex : public CoreMutex {   Possibly a mistake removing this
 	public:
 		void lock();
 		void unlock();
 		SDL_mutex *pMutex;
-	};
+    };*/
 
 	class _PolyExport SDLCore : public Core {
 		
@@ -68,7 +68,7 @@ namespace Polycode {
 		void setCursor(int cursorType);
 		void warpCursor(int x, int y);
 
-		CoreMutex *createMutex();
+        //CoreMutex *createMutex();
 		void copyStringToClipboard(const String& str);
 		String getClipboardString();
 		void createFolder(const String& folderPath);
